@@ -1,30 +1,53 @@
 {
-  "name": "Template R operator",
-  "description": "Return the medium value of a cell",
-  "tags": ["template"],
+  "name": "Log Cutoff",
+  "description": "Transforms data using a logarithmic function with an optional cutoff of values.",
+  "tags": ["log", "pamgene"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/template_R_operator"],
+  "urls": ["https://github.com/tercen/log_cutoff_operator"],
   "properties": [
-   {
-    "kind": "StringProperty",
-    "name": "string_example",
-    "defaultValue": "example",
-    "description": "description parameter 1"
-    },
-    {
+  {
     "kind": "EnumeratedProperty",
-    "name": "list_example",
-    "defaultValue": "value1",
-    "values": [
-      "value1",
-      "StringProperty",
-      "DoubleProperty",
-      "BooleanProperty",
-      "EnumeratedProperty"
-    ],
-    "description": "description parameter 2"
-  }
-  ]
+    "name": "Treatment of negative values",
+    "defaultValue": "Mask at cut-off",
+    "description": "How to handle negative values",
+	  "values": [
+      "Mask at cut-off",
+      "None",
+      "Quantile Shift"
+      ]
+  },
+  {
+    "kind": "DoubleProperty",
+    "name": "shift by quantile",
+    "defaultValue": 0.01,
+    "description": "Shift by quantile with given number."
+  },
+  {
+    "kind": "DoubleProperty",
+    "name": "shift offset",
+    "defaultValue": 1,
+    "description": "Shift offset."
+  },
+  {
+    "kind": "DoubleProperty",
+    "name": "cut-off",
+    "defaultValue": 1,
+    "description": "Cut-off."
+  },
+  {
+    "kind": "DoubleProperty",
+    "name": "logBase",
+    "defaultValue": 2,
+    "description": "Base value of the logarithmic function."
+  },
+  {
+    "kind": "EnumeratedProperty",
+    "name": "Treatment of multiple values per cell",
+    "defaultValue": "Fail",
+    "description": "How to handle multiple values per cell",
+	  "values": [
+      "Fail",
+      "Average"
+      ]
+  }]
 }
-
-

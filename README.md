@@ -17,7 +17,7 @@ Input parameters|.
 `shift offset`                          | Shift offset
 `cut-off`                               | Cut-off
 `logBase`                               | base value of the logarithmic function
-`Treatment of multiple values per cell` | How to handle multiple values per cell, options: 'Fail','None', 'Average'
+`Treatment of multiple values per cell` | How to handle multiple values per cell, options: 'Fail', 'Average'
 
 Output relations|.
 ---|---
