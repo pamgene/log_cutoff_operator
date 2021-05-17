@@ -10,6 +10,11 @@ library(reshape)
 #options("tercen.username"= "admin")
 #options("tercen.password"= "admin")
 
+
+cellMean <- function(df){
+  return(c(.ri = df$.ri[1], .ci = df$.ci[1], y = mean(df$.y)))
+}
+
 log.cutoff <- function(df, treatment_multiple_values, treatment_negative_values, shift_by_quantile, shift_offset, cut_off, log_base) {
   
   if (treatment_multiple_values == 'Fail') {
@@ -28,18 +33,16 @@ log.cutoff <- function(df, treatment_multiple_values, treatment_negative_values,
   } 
   else{
     shift_by_quantile <- NaN
-    shift             <- 0
     shift_offset      <- 0
   }
   
   if (treatment_negative_values == "None"){
-    shift        <- 0
     shift_offset <- 0
     cut_off      <- 0
   }
   
   if (log_base >= 0){
-    df$.y <- df$.y + shift_offset - shift
+    df$.y <- df$.y + shift_offset
     bCut  <- df$.y < cut_off
     df$.y[bCut] = cut_off
     result = data.frame(.ri = df$.ri, .ci = df$.ci, logTransformed = log(df$.y, log_base))
