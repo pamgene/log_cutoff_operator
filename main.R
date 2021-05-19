@@ -2,6 +2,7 @@ library(tercen)
 library(plyr)
 library(dplyr)
 library(reshape)
+library(pgCheckInput)
 
 
 cellMean <- function(df){
@@ -11,8 +12,7 @@ cellMean <- function(df){
 log.cutoff <- function(df, treatment_multiple_values, treatment_negative_values, shift_by_quantile, shift_offset, cut_off, log_base) {
   
   if (treatment_multiple_values == 'Fail') {
-    # TODO
-    #check(MultipleValuesPerCell, data)
+    check(MultipleValuesPerCell, df)
   } else {
     count = cast(df, .ri~.ci, value = ".y", fun.aggregate = length)
     if (any(count[,-1] > 1)){
