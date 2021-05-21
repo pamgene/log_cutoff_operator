@@ -148,10 +148,10 @@
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "pgcheckinput",
-      "RemoteUsername": "ginberg",
+      "RemoteUsername": "tercen",
       "RemoteRef": "HEAD",
-      "RemoteSha": "d4272764429f77e5f2f3080794476f4faec111da",
-      "Hash": "a2e43a7b6c624983249c007f566d0a9d"
+      "RemoteSha": "354926dd9d8a785d60b98d0209c1e5cb2246eef0",
+      "Hash": "a5b3512b72c5ff36ad3da6415ebb04de"
     },
     "pillar": {
       "Package": "pillar",
