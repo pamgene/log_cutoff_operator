@@ -55,10 +55,10 @@ log.cutoff <- function(df, treatment_multiple_values, treatment_negative_values,
 ctx = tercenCtx()
 
 treatment_negative_values <- ifelse(is.null(ctx$op.value('Treatment of negative values')), 'Mask at cut-off', ctx$op.value('Treatment of negative values'))
-shift_by_quantile         <- ifelse(is.null(ctx$op.value('shift by quantile')), 0.01, ctx$op.value('shift by quantile'))
-shift_offset              <- ifelse(is.null(ctx$op.value('shift offset')), 1, ctx$op.value('shift offset'))
-cut_off                   <- ifelse(is.null(ctx$op.value('cut-off')), 1, ctx$op.value('cut-off'))
-log_base                  <- ifelse(is.null(ctx$op.value('logBase')), 2, ctx$op.value('logBase'))
+shift_by_quantile         <- ifelse(is.null(ctx$op.value('shift by quantile')), 0.01, as.double(ctx$op.value('shift by quantile')))
+shift_offset              <- ifelse(is.null(ctx$op.value('shift offset')), 1, as.double(ctx$op.value('shift offset')))
+cut_off                   <- ifelse(is.null(ctx$op.value('cut-off')), 1, as.double(ctx$op.value('cut-off')))
+log_base                  <- ifelse(is.null(ctx$op.value('logBase')), 2, as.double(ctx$op.value('logBase')))
 treatment_multiple_values <- ifelse(is.null(ctx$op.value('Treatment of multiple values per cell')), 'Fail', ctx$op.value('Treatment of multiple values per cell'))
 
 ctx %>% 
