@@ -12,15 +12,8 @@
     "description": "How to handle negative values",
 	  "values": [
       "Mask at cut-off",
-      "None",
-      "Quantile Shift"
+      "None"
       ]
-  },
-  {
-    "kind": "DoubleProperty",
-    "name": "shift by quantile",
-    "defaultValue": 0.01,
-    "description": "Shift by quantile with given number."
   },
   {
     "kind": "DoubleProperty",
@@ -39,15 +32,6 @@
     "name": "logBase",
     "defaultValue": 2,
     "description": "Base value of the logarithmic function."
-  },
-  {
-    "kind": "EnumeratedProperty",
-    "name": "Treatment of multiple values per cell",
-    "defaultValue": "Fail",
-    "description": "How to handle multiple values per cell",
-	  "values": [
-      "Fail",
-      "Average"
-      ]
-  }]
+  }
+  ]
 }

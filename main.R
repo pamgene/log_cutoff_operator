@@ -1,34 +1,14 @@
 library(tercen)
-library(plyr)
 library(dplyr)
 library(reshape)
-library(pgCheckInput)
 
-
-cellMean <- function(df){
-  return(c(.ri = df$.ri[1], .ci = df$.ci[1], y = mean(df$.y)))
-}
-
-log.cutoff <- function(df, treatment_multiple_values, treatment_negative_values, shift_by_quantile, shift_offset, cut_off, log_base) {
-  
-  if (treatment_multiple_values == 'Fail') {
-    check(MultipleValuesPerCell, df)
-  } else {
-    count = cast(df, .ri~.ci, value = ".y", fun.aggregate = length)
-    if (any(count[,-1] > 1)){
-      print(message = "Multiple values per technical replication have been found. Averaging after log transformation!")
-      df = ddply(df, .ri~.ci, .fun = cellMean)
-    }
+log.cutoff <- function(df, treatment_negative_values, shift_offset, cut_off, log_base) {
+  count = cast(df, .ri~.ci, value = ".y", fun.aggregate = length)
+  if (any(count[,-1] > 1)) {
+    stop("Error: multiple values per technical replication have been found.")
   }
   
-  if (treatment_negative_values == "Quantile Shift"){
-    shift =  quantile(df$.y, shift_by_quantile, na.rm = TRUE)
-  } 
-  else{
-    shift_by_quantile <- NaN
-    shift_offset      <- 0
-  }
-  
+  treatment_negative_values <- "None"
   if (treatment_negative_values == "None"){
     shift_offset <- 0
     cut_off      <- 0
@@ -48,14 +28,12 @@ log.cutoff <- function(df, treatment_multiple_values, treatment_negative_values,
 ctx = tercenCtx()
 
 treatment_negative_values <- ifelse(is.null(ctx$op.value('Treatment of negative values')), 'Mask at cut-off', ctx$op.value('Treatment of negative values'))
-shift_by_quantile         <- ifelse(is.null(ctx$op.value('shift by quantile')), 0.01, as.double(ctx$op.value('shift by quantile')))
 shift_offset              <- ifelse(is.null(ctx$op.value('shift offset')), 1, as.double(ctx$op.value('shift offset')))
 cut_off                   <- ifelse(is.null(ctx$op.value('cut-off')), 1, as.double(ctx$op.value('cut-off')))
 log_base                  <- ifelse(is.null(ctx$op.value('logBase')), 2, as.double(ctx$op.value('logBase')))
-treatment_multiple_values <- ifelse(is.null(ctx$op.value('Treatment of multiple values per cell')), 'Fail', ctx$op.value('Treatment of multiple values per cell'))
 
 ctx %>% 
   select(.ci, .ri, .y) %>%
-  log.cutoff(., treatment_multiple_values, treatment_negative_values, shift_by_quantile, shift_offset, cut_off, log_base) %>%
+  log.cutoff(., treatment_negative_values, shift_offset, cut_off, log_base) %>%
   ctx$addNamespace() %>%
   ctx$save()
