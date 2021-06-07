@@ -15,7 +15,6 @@ log.cutoff <- function(df, treatment_negative_values, shift_offset, cut_off, log
     stop("Error: multiple values per technical replication have been found.")
   }
   
-  treatment_negative_values <- "None"
   if (treatment_negative_values == "None"){
     shift_offset <- 0
     cut_off      <- 0
