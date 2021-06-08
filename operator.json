@@ -17,12 +17,6 @@
   },
   {
     "kind": "DoubleProperty",
-    "name": "shift offset",
-    "defaultValue": 1,
-    "description": "Shift offset."
-  },
-  {
-    "kind": "DoubleProperty",
     "name": "cut-off",
     "defaultValue": 1,
     "description": "Cut-off."

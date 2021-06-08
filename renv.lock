@@ -176,12 +176,12 @@
       "Repository": "CRAN",
       "Hash": "079cb1f03ff972b30401ed05623cbe92"
     },
-    "reshape": {
-      "Package": "reshape",
-      "Version": "0.8.8",
+    "reshape2": {
+      "Package": "reshape2",
+      "Version": "1.4.4",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "0f4d941129e00ed34a7d192b1da7ccef"
+      "Hash": "bb5996d0bd962d214a11140d77589917"
     },
     "rlang": {
       "Package": "rlang",
@@ -189,6 +189,20 @@
       "Source": "Repository",
       "Repository": "RSPM",
       "Hash": "599df23c40a4fce9c7b4764f28c37857"
+    },
+    "stringi": {
+      "Package": "stringi",
+      "Version": "1.6.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "9df5e6f9a7fa11b84adf0429961de66a"
+    },
+    "stringr": {
+      "Package": "stringr",
+      "Version": "1.4.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "0759e6b6c0957edb1311028a49a35e76"
     },
     "sys": {
       "Package": "sys",
