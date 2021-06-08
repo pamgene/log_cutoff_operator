@@ -13,7 +13,6 @@ Input projection|.
 Input parameters|.
 ---|---
 `Treatment of negative values`          | How to handle negative values, options: 'Mask at cut-off','None'
-`shift offset`                          | Shift offset
 `cut-off`                               | Cut-off
 `logBase`                               | base value of the logarithmic function
 
