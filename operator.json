@@ -3,29 +3,28 @@
   "description": "Transforms data using a logarithmic function with an optional cutoff of values.",
   "tags": ["log", "pamgene"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/log_cutoff_operator"],
+  "urls": ["https://github.com/pamgene/log_cutoff_operator"],
   "properties": [
-  {
-    "kind": "EnumeratedProperty",
-    "name": "Treatment of negative values",
-    "defaultValue": "Mask at cut-off",
-    "description": "How to handle negative values",
-	  "values": [
-      "Mask at cut-off",
-      "None"
-      ]
-  },
-  {
-    "kind": "DoubleProperty",
-    "name": "cut-off",
-    "defaultValue": 1,
-    "description": "Cut-off."
-  },
-  {
-    "kind": "DoubleProperty",
-    "name": "logBase",
-    "defaultValue": 2,
-    "description": "Base value of the logarithmic function."
-  }
+    {
+      "kind": "EnumeratedProperty",
+      "name": "Treatment of negative values",
+      "defaultValue": "Mask at cut-off",
+      "description": "How to handle negative values",
+      "values": ["Mask at cut-off", "None"]
+    },
+    {
+      "kind": "DoubleProperty",
+      "name": "cut-off",
+      "defaultValue": "1",
+      "description": "Cut-off.",
+      "values": {}
+    },
+    {
+      "kind": "DoubleProperty",
+      "name": "logBase",
+      "defaultValue": "2",
+      "description": "Base value of the logarithmic function.",
+      "values": {}
+    }
   ]
 }
