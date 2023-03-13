@@ -15,14 +15,14 @@
     {
       "kind": "DoubleProperty",
       "name": "cut-off",
-      "defaultValue": "1",
+      "defaultValue": 1,
       "description": "Cut-off.",
       "values": {}
     },
     {
       "kind": "DoubleProperty",
       "name": "logBase",
-      "defaultValue": "2",
+      "defaultValue": 2,
       "description": "Base value of the logarithmic function.",
       "values": {}
     }
