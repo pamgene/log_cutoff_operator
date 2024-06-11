@@ -1,7 +1,7 @@
 {
   "name": "Log Cutoff",
   "description": "Transforms data using a logarithmic function with an optional cutoff of values.",
-  "tags": ["log", "pamgene"],
+  "tags": ["log"],
   "authors": ["tercen"],
   "urls": ["https://github.com/pamgene/log_cutoff_operator"],
   "properties": [
